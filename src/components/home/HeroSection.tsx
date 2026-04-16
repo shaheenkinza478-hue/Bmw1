@@ -100,7 +100,7 @@ const HeroSection = () => {
     }
   }
 
-  const itemVariants = {
+  const itemVariants:any = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
@@ -112,7 +112,7 @@ const HeroSection = () => {
     }
   }
 
-  const glowAnimation = {
+  const glowAnimation:any = {
     initial: { opacity: 0.3, scale: 1 },
     animate: { 
       opacity: [0.3, 0.6, 0.3],

@@ -99,7 +99,7 @@ export default function LocationsPage() {
   ]
 
   // Animation variants
-  const fadeInUp = {
+  const fadeInUp:any = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
@@ -119,7 +119,7 @@ export default function LocationsPage() {
     }
   }
 
-  const cardHoverAnimation = {
+  const cardHoverAnimation:any = {
     scale: 1.02,
     y: -5,
     transition: { 

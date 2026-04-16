@@ -41,7 +41,7 @@ export default function ModelsPage() {
     : cars.filter(car => car.category === activeCategory)
 
   // Animation variants
-  const fadeInUp = {
+  const fadeInUp:any = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
@@ -370,7 +370,7 @@ export default function ModelsPage() {
               viewport={{ once: true }}
               className="flex flex-wrap justify-center gap-3 mb-12"
             >
-              {categories.map((category) => (
+              {categories.map((category:any) => (
                 <motion.button
                   key={category.id}
                   variants={fadeInUp}

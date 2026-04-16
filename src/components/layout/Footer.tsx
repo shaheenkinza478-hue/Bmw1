@@ -19,7 +19,7 @@ const Footer = () => {
     }
   }
 
-  const itemVariants = {
+  const itemVariants:any = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -28,7 +28,7 @@ const Footer = () => {
     }
   }
 
-  const socialIconVariants = {
+  const socialIconVariants:any = {
     hidden: { opacity: 0, scale: 0 },
     visible: (i: number) => ({
       opacity: 1,

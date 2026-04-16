@@ -30,7 +30,7 @@ const Navbar = () => {
   }, [scrolled])
 
   // Animation Variants
-  const logoVariants = {
+  const logoVariants:any = {
     hidden: { opacity: 0, x: -20 },
     visible: { 
       opacity: 1, 
@@ -39,7 +39,7 @@ const Navbar = () => {
     }
   }
 
-  const menuItemVariants = {
+  const menuItemVariants:any = {
     hidden: { opacity: 0, y: -10 },
     visible: (i: number) => ({
       opacity: 1,
@@ -52,7 +52,7 @@ const Navbar = () => {
     })
   }
 
-  const ctaVariants = {
+  const ctaVariants:any = {
     hidden: { opacity: 0, scale: 0.8, x: 20 },
     visible: {
       opacity: 1,
@@ -62,7 +62,7 @@ const Navbar = () => {
     }
   }
 
-  const mobileMenuVariants = {
+  const mobileMenuVariants:any = {
     hidden: { 
       opacity: 0,
       clipPath: "circle(0% at 100% 0%)"
@@ -85,7 +85,7 @@ const Navbar = () => {
     }
   }
 
-  const mobileItemVariants = {
+  const mobileItemVariants:any = {
     hidden: { opacity: 0, x: -30 },
     visible: (i: number) => ({
       opacity: 1,

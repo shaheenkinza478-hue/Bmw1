@@ -178,7 +178,7 @@ export default function NewsPage() {
   const categories = ['All', 'New Models', 'Electric', 'Awards', 'Service', 'Models', 'Events']
 
   // Animation variants
-  const fadeInUp = {
+  const fadeInUp:any = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
@@ -198,7 +198,7 @@ export default function NewsPage() {
     }
   }
 
-  const cardHoverAnimation = {
+  const cardHoverAnimation:any = {
     scale: 1.02,
     y: -5,
     transition: { 

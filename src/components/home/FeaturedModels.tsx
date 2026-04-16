@@ -86,7 +86,7 @@ const FeaturedModels = () => {
     }
   }
 
-  const titleVariants = {
+  const titleVariants:any = {
     hidden: { opacity: 0, y: 50 },
     visible: { 
       opacity: 1, 
@@ -98,7 +98,7 @@ const FeaturedModels = () => {
     }
   }
 
-  const cardVariants = {
+  const cardVariants:any = {
     hidden: { opacity: 0, y: 100, scale: 0.8 },
     visible: (i: number) => ({
       opacity: 1,

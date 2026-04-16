@@ -40,7 +40,7 @@ const ElectricSection = () => {
     }
   }
 
-  const titleVariants = {
+  const titleVariants:any = {
     hidden: { opacity: 0, y: 50 },
     visible: { 
       opacity: 1, 
@@ -52,7 +52,7 @@ const ElectricSection = () => {
     }
   }
 
-  const itemVariants = {
+  const itemVariants:any = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
@@ -64,7 +64,7 @@ const ElectricSection = () => {
     }
   }
 
-  const featureVariants = {
+  const featureVariants:any = {
     hidden: { opacity: 0, x: -30 },
     visible: (i: number) => ({
       opacity: 1,

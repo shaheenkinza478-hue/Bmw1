@@ -6,11 +6,32 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   hover?: boolean
 }
 
+
+
 const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, hover = true, children, ...props }, ref) => {
+    const {
+      // Conflicting drag events
+      onDrag,
+      onDragStart,
+      onDragEnd,
+      onDragEnter,
+      onDragLeave,
+      onDragOver,
+      onDragExit,
+      // Conflicting animation events
+      onAnimationStart,
+      onAnimationEnd,
+      onAnimationIteration,
+      onTransitionEnd,
+      // Other potentially conflicting native events (if any)
+      onLoad,
+      onError,
+      ...restProps
+    } = props;
     return (
       <motion.div
-        whileHover={hover ? { 
+        whileHover={hover ? {
           y: -5,
           transition: { duration: 0.2 }
         } : {}}
@@ -23,7 +44,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
           className
         )}
         ref={ref}
-        {...props}
+        {...restProps}
       >
         {children}
       </motion.div>

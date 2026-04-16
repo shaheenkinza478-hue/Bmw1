@@ -21,21 +21,33 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       md: 'px-6 py-3 text-base rounded-xl',
       lg: 'px-8 py-4 text-lg rounded-xl',
     }
-
+    const {
+      // Conflicting drag events
+      onDrag,
+      onDragStart,
+      onDragEnd,
+      onDragEnter,
+      onDragLeave,
+      onDragOver,
+      onDragExit,
+      // Conflicting animation events
+      onAnimationStart,
+      onAnimationEnd,
+      onAnimationIteration,
+      onTransitionEnd,      // Also conflicts with Framer Motion's transition callbacks
+      // Any other native synthetic events that Framer Motion overrides
+      onLoad,
+      onError,
+      ...restProps
+    } = props;
     return (
       <motion.button
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         transition={{ duration: 0.2 }}
-        className={cn(
-          'inline-flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md',
-          variants[variant],
-          sizes[size],
-          fullWidth && 'w-full',
-          className
-        )}
+        className={cn(/* ... */)}
         ref={ref}
-        {...props}
+        {...restProps}
       >
         {children}
       </motion.button>
