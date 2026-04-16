@@ -37,7 +37,7 @@ export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
 
-  const { scrollYProgress } = useScroll({
+  const { scrollYProgress }:any = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   })
@@ -49,7 +49,7 @@ export default function AboutPage() {
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360])
 
   // Floating icons
-  const floatingIcons = [
+  const floatingIcons:any = [
     { Icon: Award, color: "text-blue-500", delay: 0, x: '5%', y: '15%' },
     { Icon: Users, color: "text-green-500", delay: 2, x: '90%', y: '25%' },
     { Icon: Globe, color: "text-purple-500", delay: 4, x: '15%', y: '85%' },
@@ -61,7 +61,7 @@ export default function AboutPage() {
   ]
 
   // Animation variants
-  const fadeInUp = {
+  const fadeInUp:any = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
@@ -70,7 +70,7 @@ export default function AboutPage() {
     }
   }
 
-  const staggerContainer = {
+  const staggerContainer:any = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -140,7 +140,7 @@ export default function AboutPage() {
         />
 
         {/* Floating Icons */}
-        {floatingIcons.map((item, index) => (
+        {floatingIcons.map((item:any, index:any) => (
           <motion.div
             key={index}
             className="absolute"

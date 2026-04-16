@@ -26,7 +26,7 @@ export default function HistoryPage() {
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.2, 1])
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360])
 
-  const timelineData = [
+  const timelineData:any = [
     {
       year: '1916',
       title: 'The Beginning',
@@ -92,7 +92,7 @@ export default function HistoryPage() {
     }
   ]
 
-  const milestones = [
+  const milestones:any = [
     { year: '1916', event: 'Company Founded', icon: Star },
     { year: '1923', event: 'First Motorcycle', icon: Target },
     { year: '1928', event: 'First Car', icon: Gem },
@@ -110,7 +110,7 @@ export default function HistoryPage() {
   }
 
   // Floating icons
-  const floatingIcons = [
+  const floatingIcons:any = [
     { Icon: Calendar, color: "text-blue-500", delay: 0, x: '5%', y: '15%' },
     { Icon: Clock, color: "text-green-500", delay: 2, x: '90%', y: '25%' },
     { Icon: Award, color: "text-purple-500", delay: 4, x: '15%', y: '85%' },
@@ -122,7 +122,7 @@ export default function HistoryPage() {
   ]
 
   // Animation variants
-  const fadeInUp = {
+  const fadeInUp:any = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
@@ -131,7 +131,7 @@ export default function HistoryPage() {
     }
   }
 
-  const staggerContainer = {
+  const staggerContainer:any = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -142,7 +142,7 @@ export default function HistoryPage() {
     }
   }
 
-  const cardHoverAnimation = {
+  const cardHoverAnimation:any = {
     scale: 1.02,
     y: -5,
     transition: { 
@@ -204,7 +204,7 @@ export default function HistoryPage() {
         />
 
         {/* Floating Icons */}
-        {floatingIcons.map((item, index) => (
+        {floatingIcons.map((item:any, index:any) => (
           <motion.div
             key={index}
             className="absolute"
@@ -374,7 +374,7 @@ export default function HistoryPage() {
 
               {/* Year Indicators */}
               <div className="flex justify-center gap-2 mt-6">
-                {timelineData.map((_, index) => (
+                {timelineData.map((_:any, index:any) => (
                   <button
                     key={index}
                     onClick={() => setActiveYear(index)}
@@ -418,7 +418,7 @@ export default function HistoryPage() {
               viewport={{ once: true }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
             >
-              {milestones.map((milestone, index) => {
+              {milestones.map((milestone:any, index:any) => {
                 const Icon = milestone.icon
                 return (
                   <motion.div

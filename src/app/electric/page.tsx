@@ -27,7 +27,7 @@ export default function ElectricPage() {
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360])
 
   // Animation variants
-  const fadeInUp = {
+  const fadeInUp:any = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
@@ -457,7 +457,7 @@ export default function ElectricPage() {
                     'Access to 50,000+ charging points',
                     'Smart charging scheduling',
                     'Real-time battery monitoring'
-                  ].map((item, index) => (
+                  ].map((item:any, index:any) => (
                     <motion.li
                       key={index}
                       variants={fadeInUp}

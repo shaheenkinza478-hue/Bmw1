@@ -111,7 +111,7 @@ export default function ChargingPage() {
   ]
 
   // Floating icons - blue/purple theme
-  const floatingIcons = [
+  const floatingIcons:any = [
     { Icon: Zap, color: "text-blue-500", delay: 0, x: '5%', y: '15%' },
     { Icon: Battery, color: "text-purple-500", delay: 2, x: '90%', y: '25%' },
     { Icon: Gauge, color: "text-indigo-500", delay: 4, x: '15%', y: '85%' },
@@ -123,7 +123,7 @@ export default function ChargingPage() {
   ]
 
   // Animation variants
-  const fadeInUp = {
+  const fadeInUp:any = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
@@ -132,7 +132,7 @@ export default function ChargingPage() {
     }
   }
 
-  const staggerContainer = {
+  const staggerContainer:any = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -143,7 +143,7 @@ export default function ChargingPage() {
     }
   }
 
-  const cardHoverAnimation = {
+  const cardHoverAnimation:any = {
     scale: 1.02,
     y: -5,
     transition: { 
@@ -212,7 +212,7 @@ export default function ChargingPage() {
         />
 
         {/* Floating Icons */}
-        {floatingIcons.map((item, index) => (
+        {floatingIcons.map((item:any, index:any) => (
           <motion.div
             key={index}
             className="absolute"

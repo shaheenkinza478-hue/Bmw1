@@ -72,7 +72,7 @@ export default function BookAppointmentPage() {
   ]
 
   // Animation variants
-  const fadeInUp = {
+  const fadeInUp:any = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
@@ -81,7 +81,7 @@ export default function BookAppointmentPage() {
     }
   }
 
-  const staggerContainer = {
+  const staggerContainer:any = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
