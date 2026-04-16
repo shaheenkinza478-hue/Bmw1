@@ -7,7 +7,7 @@ import { Car } from '@/types/car'
 import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
 import { motion } from 'framer-motion'
-import { Sparkles, Zap, Gauge, Star } from 'lucide-react'
+import { Sparkles, Zap, Gauge, Star, ArrowRight } from 'lucide-react'
 
 interface CarCardProps {
   car: Car
@@ -117,21 +117,38 @@ const CarCard = ({ car }: CarCardProps) => {
             )}
           </div>
 
-          {/* Button */}
+          {/* === REDESIGNED BUTTON === */}
           <Link href={`/models/${car.slug}`} className="mt-auto">
             <motion.div
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              className="relative group/btn"
             >
-              <Button 
-                variant="outline" 
-                fullWidth
-                className="border-gray-700 hover:border-blue-500 text-gray-300 hover:text-white hover:bg-blue-500/10 transition-all duration-300 text-sm py-2"
-              >
-                Explore Model
-              </Button>
+              {/* Animated gradient border */}
+              <motion.div
+                className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 rounded-lg blur opacity-0 group-hover/btn:opacity-100 transition duration-500"
+                animate={{
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                style={{ backgroundSize: '200% 200%' }}
+              />
+              
+              <div className="relative bg-black/80 backdrop-blur-sm border border-gray-700 rounded-lg px-4 py-2 group-hover/btn:bg-black/60 transition-all duration-300">
+                <span className="relative z-10 flex items-center justify-center gap-2 text-gray-300 group-hover/btn:text-white font-medium text-sm tracking-wide">
+                  Explore Model
+                  <ArrowRight size={14} className="text-blue-400 opacity-0 group-hover/btn:opacity-100 transition-all duration-300 group-hover/btn:translate-x-1" />
+                </span>
+                {/* Inner shine */}
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000" />
+              </div>
             </motion.div>
           </Link>
+          {/* === END REDESIGNED BUTTON === */}
         </div>
       </Card>
     </motion.div>

@@ -350,66 +350,100 @@ const HeroSection = () => {
             </AnimatePresence>
           </motion.div>
           
-          {/* CTA Buttons */}
+          {/* === REDESIGNED BUTTONS === */}
           <motion.div variants={itemVariants} className="flex flex-wrap gap-6 justify-center mb-10">
+            {/* EXPLORE MODELS Button - Premium Dark with Blue Gradient Border */}
             <Link href="/models">
               <motion.div
                 onHoverStart={() => setHoveredItem('explore')}
                 onHoverEnd={() => setHoveredItem(null)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="relative group"
               >
-                <Button 
-                  size="lg" 
-                  className="relative overflow-hidden bg-blue-600 hover:bg-blue-700 border-0 text-white font-bold px-8 py-3 rounded-full shadow-2xl shadow-blue-600/50 group text-base"
-                >
-                  <span className="relative z-10 flex items-center gap-2">
+                {/* Animated gradient border */}
+                <motion.div
+                  className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"
+                  animate={{
+                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  style={{ backgroundSize: '200% 200%' }}
+                />
+                <div className="relative bg-black/80 backdrop-blur-sm border border-blue-500/30 rounded-full px-8 py-3 group-hover:bg-black/60 transition-all duration-300">
+                  <span className="relative z-10 flex items-center gap-2 text-white font-bold text-base tracking-wide">
                     EXPLORE MODELS
                     <motion.span
-                      animate={{ x: hoveredItem === 'explore' ? 5 : 0 }}
+                      animate={{ x: hoveredItem === 'explore' ? 6 : 0 }}
+                      transition={{ type: "spring", stiffness: 300 }}
                     >
-                      <ArrowRight size={18} />
+                      <ArrowRight size={18} className="text-blue-400" />
                     </motion.span>
                   </span>
-                  <motion.div
-                    initial={{ x: '-100%', skewX: -15 }}
-                    whileHover={{ x: '200%' }}
-                    transition={{ duration: 0.8 }}
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                  />
-                </Button>
+                  {/* Inner shine */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                </div>
               </motion.div>
             </Link>
             
+            {/* ELECTRIC Button - Neon Blue Glow Effect */}
             <Link href="/electric">
               <motion.div
                 onHoverStart={() => setHoveredItem('electric')}
                 onHoverEnd={() => setHoveredItem(null)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="relative group"
               >
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="group border-2 border-white/30 hover:border-blue-500 text-white hover:bg-blue-500/10 backdrop-blur-sm px-8 py-3 rounded-full text-base font-bold"
-                >
-                  <span className="flex items-center gap-2">
+                {/* Glow behind button */}
+                <motion.div
+                  className="absolute inset-0 bg-blue-500/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                <div className="relative bg-gradient-to-r from-blue-700 to-blue-600 rounded-full px-8 py-3 shadow-lg shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all duration-300">
+                  <span className="relative z-10 flex items-center gap-2 text-white font-bold text-base tracking-wide">
                     ELECTRIC
                     <motion.span
                       animate={{ 
                         rotate: hoveredItem === 'electric' ? 360 : 0,
+                        scale: hoveredItem === 'electric' ? 1.2 : 1
                       }}
                       transition={{ duration: 0.4 }}
                     >
-                      <Zap size={18} className="text-yellow-400" />
+                      <Zap size={18} className="text-yellow-300" />
                     </motion.span>
                   </span>
-                </Button>
+                  {/* Pulsing border effect */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full border-2 border-white/30"
+                    animate={{
+                      opacity: [0.3, 0.8, 0.3],
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                </div>
               </motion.div>
             </Link>
           </motion.div>
+          {/* === END REDESIGNED BUTTONS === */}
 
           {/* Premium Features Grid */}
           <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto">

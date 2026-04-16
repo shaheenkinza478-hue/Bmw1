@@ -346,7 +346,7 @@ const FeaturedModels = () => {
           ))}
         </motion.div>
 
-        {/* View All Button */}
+        {/* === REDESIGNED VIEW ALL BUTTON === */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -361,32 +361,27 @@ const FeaturedModels = () => {
         >
           <Link href="/models">
             <motion.div
-              whileHover={{ 
-                scale: 1.1,
-                boxShadow: '0 20px 40px -10px rgba(59,130,246,0.5)'
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block relative"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className="relative group inline-block"
             >
-              {/* Glow Effect */}
+              {/* Animated gradient border */}
               <motion.div
+                className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"
                 animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.3, 0.7, 0.3],
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 3,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "linear"
                 }}
-                className="absolute inset-0 bg-blue-500 blur-2xl rounded-full"
+                style={{ backgroundSize: '200% 200%' }}
               />
               
-              <Button 
-                size="lg"
-                className="relative bg-blue-600 hover:bg-blue-700 text-white font-bold px-12 py-5 rounded-full text-lg overflow-hidden group border-0 shadow-2xl shadow-blue-600/50"
-              >
-                <span className="relative z-10 flex items-center gap-3">
+              <div className="relative bg-black/80 backdrop-blur-sm border border-blue-500/30 rounded-full px-12 py-5 group-hover:bg-black/60 transition-all duration-300">
+                <span className="relative z-10 flex items-center gap-3 text-white font-bold text-lg tracking-wide">
                   VIEW ALL {featuredCars.length}+ MODELS
                   <motion.span
                     animate={{ x: [0, 5, 0] }}
@@ -396,21 +391,16 @@ const FeaturedModels = () => {
                       ease: "easeInOut"
                     }}
                   >
-                    <ArrowRight size={20} />
+                    <ArrowRight size={20} className="text-blue-400" />
                   </motion.span>
                 </span>
-                
-                {/* Shine Effect */}
-                <motion.div
-                  initial={{ x: '-100%', skewX: -15 }}
-                  whileHover={{ x: '200%' }}
-                  transition={{ duration: 0.8 }}
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                />
-              </Button>
+                {/* Inner shine */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              </div>
             </motion.div>
           </Link>
         </motion.div>
+        {/* === END REDESIGNED BUTTON === */}
       </div>
 
       {/* Bottom Border Animation */}
